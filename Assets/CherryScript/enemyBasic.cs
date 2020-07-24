@@ -32,6 +32,6 @@ public class enemyBasic : MonoBehaviour
     {
         this.enabled = false;
         GetComponent<Collider2D>().enabled = false;
-        Destroy(this.gameObject, 1);
+        Destroy(this.transform.parent.gameObject, 1);
     }
 }

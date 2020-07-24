@@ -16,6 +16,8 @@ public class MoveableCharacter : MonoBehaviour
     public LayerMask ground_layer;
     public float _groundcheck_distance = 1f;
 
+    public bool handleGravityHere = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +38,9 @@ public class MoveableCharacter : MonoBehaviour
             falling = false;
         }
         _anim.SetBool("Falling", falling);
-        HandleGravity();
-        MoveCharacter();
+        if (handleGravityHere)
+            HandleGravity();
+        // MoveCharacter();
     }
 
     private void HandleGravity()
