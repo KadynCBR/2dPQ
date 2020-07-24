@@ -443,6 +443,24 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+ <HintPath>D:/GameDev/UnityProjects/PokeQuest/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ </Reference>
+ <Reference Include="GitHub.Api.45">
+ <HintPath>D:/GameDev/UnityProjects/PokeQuest/Assets/Plugins/GitHub/Editor/GitHub.Api.45.dll</HintPath>
+ </Reference>
+ <Reference Include="GitHub.Logging">
+ <HintPath>D:/GameDev/UnityProjects/PokeQuest/Assets/Plugins/GitHub/Editor/GitHub.Logging.dll</HintPath>
+ </Reference>
+ <Reference Include="GitHub.Unity.45">
+ <HintPath>D:/GameDev/UnityProjects/PokeQuest/Assets/Plugins/GitHub/Editor/GitHub.Unity.45.dll</HintPath>
+ </Reference>
+ <Reference Include="GitHub.UnityShim">
+ <HintPath>D:/GameDev/UnityProjects/PokeQuest/Assets/Plugins/GitHub/Editor/GitHub.UnityShim.dll</HintPath>
+ </Reference>
+ <Reference Include="sfw.net">
+ <HintPath>D:/GameDev/UnityProjects/PokeQuest/Assets/Plugins/GitHub/Editor/sfw.net.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>D:/GameDev/UnityProjects/PokeQuest/Library/PackageCache/com.unity.ads@2.3.1/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -463,9 +481,6 @@
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
  <HintPath>D:/GameDev/UnityProjects/PokeQuest/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
- </Reference>
- <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>D:/GameDev/UnityProjects/PokeQuest/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -825,6 +840,8 @@
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{AC6A1FA4-A65B-C1BE-047E-44B59C1D5A9D}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{5EB85365-8627-E57A-5FD1-CD284C0A897B}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{38F05773-0DBD-1E01-8BC2-A816A7E51A00}</Project>      <Name>AstarPathfindingProject</Name>    </ProjectReference>
     <ProjectReference Include="PackageToolsEditor.csproj">
