@@ -80,7 +80,7 @@ public class BasicController2D : MonoBehaviour
             hitbox.offset = new Vector2(-.2f, -.74f);
             hitbox.size = new Vector2(2.18f, 2.42f);
             if (player_speed > 0f)
-                player_speed -= .1f;
+                player_speed -= 5f * Time.deltaTime;
             _anim.SetBool("crouching", true);
         } else {
             hitbox.offset = new Vector2(-.2f, 0f);
