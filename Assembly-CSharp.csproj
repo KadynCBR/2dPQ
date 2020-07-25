@@ -61,7 +61,9 @@
      <Compile Include="Assets\Anima2D\Scripts\SpriteMeshAnimation.cs" />
      <Compile Include="Assets\Anima2D\Scripts\SpriteMeshInstance.cs" />
      <Compile Include="Assets\CherryScript\BasicController2D.cs" />
+     <Compile Include="Assets\CherryScript\CoolDown.cs" />
      <Compile Include="Assets\CherryScript\MoveableCharacter.cs" />
+     <Compile Include="Assets\CherryScript\Skills.cs" />
      <Compile Include="Assets\CherryScript\enemyBasic.cs" />
      <None Include="Assets\Anima2D\Readme.txt" />
      <None Include="Assets\Anima2D\Examples\Shaders\VertexLitOneDirectional.shader" />

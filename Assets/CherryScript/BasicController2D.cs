@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using abilities;
 
 public class BasicController2D : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class BasicController2D : MonoBehaviour
     void Start()
     {
         _position = transform.position;
-        _anim = GetComponent<Animator>();
+        _anim = GetComponentInChildren<Animator>();
         facing_right = true;
         _isCrouching = false;
         _isJumping = false;
@@ -74,7 +75,7 @@ public class BasicController2D : MonoBehaviour
         }
         
         // Crouching
-        bool _isCrouching = Input.GetButton("Crouch");
+        _isCrouching = Input.GetButton("Crouch");
         if (_isCrouching && _isGrounded)
         {
             hitbox.offset = new Vector2(-.2f, -.74f);
@@ -106,6 +107,7 @@ public class BasicController2D : MonoBehaviour
 
         // Attacks
         HandleAttacks();
+        // HandleFastMove();
     }
 
     private void MoveCharacter()
@@ -137,6 +139,12 @@ public class BasicController2D : MonoBehaviour
             return true;
         return false;
     }
+
+    // private void HandleFastMove()
+    // {
+    //     if (Input.GetButton("Fast Move"))
+    //         Debug.Log("hi :)");
+    // }
 
     private void HandleAttacks()
     {

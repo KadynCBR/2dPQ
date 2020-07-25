@@ -46,7 +46,7 @@ public class TileMaster : EditorWindow {
 		cmSprites = new Sprite[0];
 		layers.Clear();
 		
-		SceneView.onSceneGUIDelegate += OnSceneGUI; //Sets delegate for adding the OnSceneGUI event
+		SceneView.duringSceneGui += OnSceneGUI; //Sets delegate for adding the OnSceneGUI event
 		
 
 		cmTileSets = Resources.LoadAll<Texture>("Tilesets"); //Load all tilesets as texture
