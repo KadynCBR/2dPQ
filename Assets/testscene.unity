@@ -10288,8 +10288,6 @@ GameObject:
   - component: {fileID: 823493197}
   - component: {fileID: 823493196}
   - component: {fileID: 823493198}
-  - component: {fileID: 823493199}
-  - component: {fileID: 823493200}
   m_Layer: 9
   m_Name: EnemyGFX
   m_TagString: Untagged
@@ -10356,7 +10354,7 @@ Transform:
   m_GameObject: {fileID: 823493195}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1820986009}
   m_RootOrder: 0
@@ -10380,37 +10378,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &823493199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823493195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4009130c27de7849ac9a90d067d7c45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement_speed: 10
-  ground_layer:
-    serializedVersion: 2
-    m_Bits: 256
-  _groundcheck_distance: 1
-  handleGravityHere: 0
---- !u!114 &823493200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823493195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 811c0596607feab4195f781d4af68ab8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
 --- !u!1 &837615116
 GameObject:
   m_ObjectHideFlags: 0
@@ -20808,7 +20775,9 @@ GameObject:
   - component: {fileID: 1820986007}
   - component: {fileID: 1820986010}
   - component: {fileID: 1820986011}
-  m_Layer: 0
+  - component: {fileID: 1820986013}
+  - component: {fileID: 1820986012}
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20822,7 +20791,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820986006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
   m_Name: 
@@ -20832,7 +20801,7 @@ MonoBehaviour:
   height: 2
   repathRate: 0.5
   canSearch: 1
-  canMove: 1
+  canMove: 0
   maxSpeed: 10
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
@@ -20888,7 +20857,7 @@ Transform:
   m_GameObject: {fileID: 1820986006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.62, y: -3.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 823493197}
   m_Father: {fileID: 0}
@@ -20901,7 +20870,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820986006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
@@ -20921,9 +20890,40 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.84, y: 3.9}
+  m_Offset: {x: -0.04, y: 0}
+  m_Size: {x: 1.21, y: 1.98}
   m_Direction: 0
+--- !u!114 &1820986012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820986006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4009130c27de7849ac9a90d067d7c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement_speed: 10
+  ground_layer:
+    serializedVersion: 2
+    m_Bits: 256
+  _groundcheck_distance: 1
+  handleGravityHere: 0
+--- !u!114 &1820986013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820986006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811c0596607feab4195f781d4af68ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
 --- !u!1 &1829279048
 GameObject:
   m_ObjectHideFlags: 0
@@ -25295,6 +25295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyLayers.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816925752553304272, guid: 74df927602783624a8410a2b0fbedaaa,
+        type: 3}
+      propertyPath: debug
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816925752553304274, guid: 74df927602783624a8410a2b0fbedaaa,
         type: 3}

@@ -10,7 +10,7 @@ public class enemyBasic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _anim = GetComponent<Animator>();
+        _anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -32,6 +32,6 @@ public class enemyBasic : MonoBehaviour
     {
         this.enabled = false;
         GetComponent<Collider2D>().enabled = false;
-        Destroy(this.transform.parent.gameObject, 1);
+        Destroy(this.gameObject, 1);
     }
 }

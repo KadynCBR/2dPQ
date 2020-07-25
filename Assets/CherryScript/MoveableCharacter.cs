@@ -23,7 +23,7 @@ public class MoveableCharacter : MonoBehaviour
     {
         _position = transform.position;
         _position.x = 0;
-        _anim = GetComponent<Animator>();
+        _anim = GetComponentInChildren<Animator>();
         facing_right = true;
     }
 
