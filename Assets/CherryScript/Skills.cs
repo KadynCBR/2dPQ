@@ -64,7 +64,6 @@ public class FastMove: CoolDown
         float alpha = sr.material.color.a;
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
         {
-            Debug.Log(Mathf.Lerp(alpha,aValue,t));
             Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha,aValue,t));
             sr.material.color = newColor;
             yield return null;
@@ -74,16 +73,23 @@ public class FastMove: CoolDown
 
 }
 
-// public class BasicAttack : CoolDown 
-// {
-//     public BasicAttack()
-//     {
-//         Name = "Basic Attack";
-//         cooldown = 0.3f;
-//     }
+public class BasicAttack : CoolDown 
+{
+    private GameObject player;
+    public BasicAttack()
+    {
+        Name = "Basic Attack";
+        cooldown = 0.3f;
+    }
 
-//     public override void Action()
-//     {
+    public void init(GameObject T)
+    {
+        player = T;
+    }
 
-//     }
-// }
+
+    public override void Action()
+    {
+
+    }
+}
