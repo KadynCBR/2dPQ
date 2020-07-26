@@ -25316,6 +25316,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5119613715211027832, guid: e9e41cd700017c341b3834e48f9d9bc9,
+        type: 3}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119613715211027832, guid: e9e41cd700017c341b3834e48f9d9bc9,
+        type: 3}
+      propertyPath: _ground_check_y_offset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119613715211027832, guid: e9e41cd700017c341b3834e48f9d9bc9,
+        type: 3}
+      propertyPath: _groundcheck_distance
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e41cd700017c341b3834e48f9d9bc9, type: 3}
 --- !u!1001 &7070040191896135696
@@ -25457,7 +25472,7 @@ PrefabInstance:
     - target: {fileID: 6816925752553304276, guid: 74df927602783624a8410a2b0fbedaaa,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74df927602783624a8410a2b0fbedaaa, type: 3}

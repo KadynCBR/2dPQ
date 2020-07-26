@@ -23,7 +23,8 @@ public class BasicController2D : MonoBehaviour
     public LayerMask enemyLayers;
 
     public LayerMask ground_layer;
-    public float _groundcheck_distance = 1f;
+    private float _ground_check_y_offset = -0.96f;
+    private float _groundcheck_distance = 0.08f;
     public float attackskill_cooldown = .5f;
     private float next_attack_time;
 
@@ -39,6 +40,7 @@ public class BasicController2D : MonoBehaviour
         _isCrouching = false;
         _isJumping = false;
         next_attack_time = Time.time;
+        
     }
 
     private void DebugOut()
@@ -46,7 +48,7 @@ public class BasicController2D : MonoBehaviour
         if (debug) 
         {
             Debug.Log(_isGrounded);
-            Debug.DrawRay(transform.position, Vector2.down, Color.green);
+            // Debug.DrawRay(transform.position, Vector2.down, Color.green);
         }
     }
 
@@ -136,17 +138,14 @@ public class BasicController2D : MonoBehaviour
 
     private bool CheckGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _groundcheck_distance,  ground_layer);
+        Vector3 offset_vector = new Vector3(0, _ground_check_y_offset, 0);
+        Debug.DrawRay(transform.position + offset_vector, Vector2.down*_groundcheck_distance, Color.green);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + offset_vector, Vector2.down, _groundcheck_distance,  ground_layer);
         if (hit.collider != null)
             return true;
         return false;
     }
 
-    // private void HandleFastMove()
-    // {
-    //     if (Input.GetButton("Fast Move"))
-    //         Debug.Log("hi :)");
-    // }
 
     private void HandleAttacks()
     {
