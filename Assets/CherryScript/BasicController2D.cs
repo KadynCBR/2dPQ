@@ -9,6 +9,7 @@ public class BasicController2D : MonoBehaviour
     private Animator _anim;
     private Vector3 _position;
     private bool _isGrounded;
+    public GameObject fireball;
 
     public float player_speed = 10f;
     public float JumpHeight = 3f;
@@ -175,6 +176,9 @@ public class BasicController2D : MonoBehaviour
     }
 
     private void SpawnProjectile() {
-        Debug.Log("Projectile Spawn!");
+        float rotation = transform.localScale.x;
+        Quaternion rotation_vec = Quaternion.Euler(0, 0, 90+90*-rotation);
+        GameObject fireball_spawn = Instantiate(fireball, transform.position, Quaternion.identity);
+        fireball_spawn.transform.localRotation = rotation_vec;
     }
 }

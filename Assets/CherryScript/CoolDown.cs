@@ -8,6 +8,8 @@ namespace abilities {
         public string Name;
         public bool Available;
         public float cooldown;
+        public string player_input_string;
+        protected GameObject player;
 
         private float _timeStamp;
 
@@ -16,9 +18,14 @@ namespace abilities {
             Available = true;
         }
 
-        /// <summary>
-        /// Will call Action then setup timers for execution
-        /// </summary>
+        public virtual void init(GameObject T) {
+            player = T;
+        }
+
+        public virtual bool CheckInput() {
+            return Input.GetButton(player_input_string);
+        }
+
         public bool Execute()
         {
             if (Available)
@@ -32,6 +39,7 @@ namespace abilities {
         }
 
         public abstract void Action();
+
         public void Executed()
         {
             Available = false;

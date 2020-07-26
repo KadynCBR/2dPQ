@@ -7,37 +7,37 @@ using abilities;
 public class Skills : MonoBehaviour
 {
     private FastMove fast_move;
+    private List<CoolDown> cooldowns = new List<CoolDown>();
     // Start is called before the first frame update
     void Start()
     {
-        fast_move = gameObject.AddComponent<FastMove>();
-        fast_move.init(gameObject);
+        cooldowns.Add(gameObject.AddComponent<FastMove>());
+        foreach(CoolDown c in cooldowns)
+        {
+            c.init(gameObject);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fast Move"))
-            fast_move.Execute();
-
-        fast_move.Update();
+        foreach(CoolDown c in cooldowns)
+        {
+            if (c.CheckInput())
+                c.Execute();
+            c.Update();
+        }
     }
-    
 }
 
 public class FastMove: CoolDown
 {
     public float distance = 6f;
-    private GameObject player;
     private GameObject clone;
     public FastMove()
     {
         Name = "Teleport";
         cooldown = 1f;
-    }
-    public void init(GameObject T)
-    {
-        player = T;
+        player_input_string = "Fast Move";
     }
 
     public override void Action()
@@ -70,26 +70,25 @@ public class FastMove: CoolDown
         }
         Destroy(clone);
     }
-
 }
 
 public class BasicAttack : CoolDown 
 {
-    private GameObject player;
+    private Animator _anim;
     public BasicAttack()
     {
         Name = "Basic Attack";
         cooldown = 0.3f;
+        player_input_string = "Fire1";
     }
 
-    public void init(GameObject T)
+    public override void init(GameObject T)
     {
-        player = T;
+        _anim = T.GetComponentInChildren<Animator>();
     }
-
 
     public override void Action()
     {
-
+        _anim.SetTrigger("BasicAttack");
     }
 }
