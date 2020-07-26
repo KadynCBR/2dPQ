@@ -149,7 +149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6816925752553304274
 Transform:
   m_ObjectHideFlags: 0
@@ -196,8 +196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_speed: 10
   JumpHeight: 7.5
-  hitbox: {fileID: 6816925752553304275}
-  attackPoint: {fileID: 519816664}
+  hitbox: {fileID: 0}
+  attackPoint: {fileID: 0}
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2

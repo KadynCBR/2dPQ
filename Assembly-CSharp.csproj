@@ -61,6 +61,7 @@
      <Compile Include="Assets\Anima2D\Scripts\SpriteMeshAnimation.cs" />
      <Compile Include="Assets\Anima2D\Scripts\SpriteMeshInstance.cs" />
      <Compile Include="Assets\CherryScript\BasicController2D.cs" />
+     <Compile Include="Assets\CherryScript\CinemachineAutoplayer.cs" />
      <Compile Include="Assets\CherryScript\CoolDown.cs" />
      <Compile Include="Assets\CherryScript\MoveableCharacter.cs" />
      <Compile Include="Assets\CherryScript\Skills.cs" />
