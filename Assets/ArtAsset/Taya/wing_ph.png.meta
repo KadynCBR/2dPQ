@@ -1,43 +1,22 @@
 fileFormatVersion: 2
-guid: 623032fc2a2fd6c4ea9567003f4b05b7
+guid: b5f210fedf77a964b9524bc60e5bc1ef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6670497231163481633
-    second: wing_run_0
+      213: 8783029356026841154
+    second: wing_ph_0
   - first:
-      213: 6915980119951046632
-    second: wing_run_1
+      213: 7330997897518056352
+    second: wing_ph_1
   - first:
-      213: 3901428588540493079
-    second: wing_run_2
+      213: 5297175474450683532
+    second: wing_ph_2
   - first:
-      213: -7056501542159368725
-    second: wing_run_3
+      213: 6658787538826418766
+    second: wing_ph_3
   - first:
-      213: 1602464445849050289
-    second: wing_run_4
-  - first:
-      213: -3936724857277078529
-    second: wing_run_5
-  - first:
-      213: -5693487890991642150
-    second: wing_run_0
-  - first:
-      213: -531433211818382748
-    second: wing_run_1
-  - first:
-      213: 5053937246411117303
-    second: wing_run_2
-  - first:
-      213: -5849182382584270916
-    second: wing_run_3
-  - first:
-      213: 3280475539720069792
-    second: wing_run_4
-  - first:
-      213: -6061264975863931161
-    second: wing_run_5
+      213: 9081892441110265228
+    second: wing_ph_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -147,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wing_run_0
+      name: wing_ph_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 212
-        width: 600
-        height: 730
+        y: 242
+        width: 650
+        height: 700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad98474bdeaacf0b0800000000000000
-      internalID: -5693487890991642150
+      spriteID: 248cec13aa693e970800000000000000
+      internalID: 8783029356026841154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wing_run_1
+      name: wing_ph_1
       rect:
         serializedVersion: 2
-        x: 600
-        y: 212
-        width: 600
-        height: 730
+        x: 650
+        y: 242
+        width: 650
+        height: 700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46a68bb3f48ff98f0800000000000000
-      internalID: -531433211818382748
+      spriteID: 0a303ba1fbfecb560800000000000000
+      internalID: 7330997897518056352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wing_run_2
+      name: wing_ph_2
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 212
-        width: 600
-        height: 730
+        x: 1300
+        y: 242
+        width: 650
+        height: 700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,71 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f253711621332640800000000000000
-      internalID: 5053937246411117303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wing_run_3
-      rect:
-        serializedVersion: 2
-        x: 1800
-        y: 212
-        width: 600
-        height: 730
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cbf67930d9783dea0800000000000000
-      internalID: -5849182382584270916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wing_run_4
-      rect:
-        serializedVersion: 2
-        x: 2400
-        y: 212
-        width: 600
-        height: 730
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a26f576f17968d20800000000000000
-      internalID: 3280475539720069792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wing_run_5
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 212
-        width: 600
-        height: 730
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ee1d105e9f02eba0800000000000000
-      internalID: -6061264975863931161
+      spriteID: c865b834709538940800000000000000
+      internalID: 5297175474450683532
       vertices: []
       indices: 
       edges: []

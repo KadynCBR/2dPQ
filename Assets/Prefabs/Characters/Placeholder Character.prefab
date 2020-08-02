@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5119613715211027814
 Transform:
   m_ObjectHideFlags: 0
@@ -63,19 +63,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f16e19dd0e98540846f2557607426a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireball: {fileID: 0}
   player_speed: 10
   JumpHeight: 7.5
   hitbox: {fileID: 0}
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 512
   ground_layer:
     serializedVersion: 2
     m_Bits: 256
-  _groundcheck_distance: 1
-  attackskill_cooldown: 0.3
   debug: 0
 --- !u!114 &1616148111
 MonoBehaviour:
@@ -215,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5119613716361307463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.83, y: 0, z: 0}
+  m_LocalPosition: {x: 1.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5119613715211027814}

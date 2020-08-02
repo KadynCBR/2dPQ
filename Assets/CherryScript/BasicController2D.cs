@@ -20,6 +20,7 @@ public class BasicController2D : MonoBehaviour
     private bool _isJumping;
 
     public CapsuleCollider2D hitbox;
+    public Vector2 original_hitbox_offset;
 
     public LayerMask ground_layer;
     private float _ground_check_y_offset = -0.96f;
@@ -32,6 +33,7 @@ public class BasicController2D : MonoBehaviour
         _position = transform.position;
         _anim = GetComponentInChildren<Animator>();
         hitbox = GetComponentInChildren<CapsuleCollider2D>();
+        original_hitbox_offset = hitbox.offset;
         facing_right = true;
         _isCrouching = false;
         _isJumping = false;
@@ -77,13 +79,13 @@ public class BasicController2D : MonoBehaviour
         _isCrouching = Input.GetButton("Crouch");
         if (_isCrouching && _isGrounded)
         {
-            hitbox.offset = new Vector2(0.01f, -.44f);
+            hitbox.offset = original_hitbox_offset - new Vector2(0f, .44f);
             hitbox.size = new Vector2(1.1f, 1.08f);
             if (player_speed > 0f)
                 player_speed -= 5f * Time.deltaTime;
             _anim.SetBool("crouching", true);
         } else {
-            hitbox.offset = new Vector2(0.01f, 0f);
+            hitbox.offset = original_hitbox_offset;
             hitbox.size = new Vector2(1.1f, 2.03f);
             player_speed = 10f;
             _anim.SetBool("crouching", false);
