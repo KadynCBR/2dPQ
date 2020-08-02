@@ -5,11 +5,12 @@ using abilities;
 
 public class BasicController2D : MonoBehaviour
 {
+    // Needed for skill script to easily find the prefab
+    public GameObject fireball;
 
     private Animator _anim;
     private Vector3 _position;
     private bool _isGrounded;
-    public GameObject fireball;
 
     public float player_speed = 10f;
     public float JumpHeight = 3f;
@@ -19,15 +20,10 @@ public class BasicController2D : MonoBehaviour
     private bool _isJumping;
 
     public CapsuleCollider2D hitbox;
-    public Transform attackPoint;
-    public float attackRange = 0.5f;
-    public LayerMask enemyLayers;
 
     public LayerMask ground_layer;
     private float _ground_check_y_offset = -0.96f;
     private float _groundcheck_distance = 0.08f;
-    public float attackskill_cooldown = .5f;
-    private float next_attack_time;
 
     public bool debug = true;
     // Start is called before the first frame update
@@ -36,11 +32,9 @@ public class BasicController2D : MonoBehaviour
         _position = transform.position;
         _anim = GetComponentInChildren<Animator>();
         hitbox = GetComponentInChildren<CapsuleCollider2D>();
-        attackPoint = transform.GetChild(1);
         facing_right = true;
         _isCrouching = false;
         _isJumping = false;
-        next_attack_time = Time.time;
         
     }
 
@@ -49,7 +43,7 @@ public class BasicController2D : MonoBehaviour
         if (debug) 
         {
             Debug.Log(_isGrounded);
-            // Debug.DrawRay(transform.position, Vector2.down, Color.green);
+            Debug.DrawRay(transform.position, Vector2.down, Color.green);
         }
     }
 
@@ -109,10 +103,6 @@ public class BasicController2D : MonoBehaviour
             _isJumping = false;
         }
         _anim.SetBool("Jump", _isJumping);
-
-        // Attacks
-        HandleAttacks();
-        // HandleFastMove();
     }
 
     private void MoveCharacter()
@@ -145,40 +135,5 @@ public class BasicController2D : MonoBehaviour
         if (hit.collider != null)
             return true;
         return false;
-    }
-
-
-    private void HandleAttacks()
-    {
-        if (Time.time >= next_attack_time)
-        {
-            if (Input.GetButton("Fire1")) // left click basic attack
-            {
-                _anim.SetTrigger("BasicAttack");
-                next_attack_time = Time.time + attackskill_cooldown;
-                Checkhit();
-            } else if (Input.GetButton("Fire2"))
-            {
-                next_attack_time = Time.time + attackskill_cooldown;
-                _anim.SetTrigger("Skill");
-                SpawnProjectile();
-            }
-        }
-    }
-
-    private void Checkhit()
-    {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            enemy.GetComponent<enemyBasic>().OnHit(30);
-        }
-    }
-
-    private void SpawnProjectile() {
-        float rotation = transform.localScale.x;
-        Quaternion rotation_vec = Quaternion.Euler(0, 0, 90+90*-rotation);
-        GameObject fireball_spawn = Instantiate(fireball, transform.position, Quaternion.identity);
-        fireball_spawn.transform.localRotation = rotation_vec;
     }
 }

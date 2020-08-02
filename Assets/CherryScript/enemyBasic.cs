@@ -19,7 +19,7 @@ public class enemyBasic : MonoBehaviour
         
     }
 
-    public void OnHit(int damageTaken)
+    public void OnHit(float damageTaken)
     {
         _anim.SetTrigger("Hurt");
         this.hp -= damageTaken;
