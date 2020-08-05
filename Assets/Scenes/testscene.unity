@@ -706,7 +706,8 @@ GameObject:
   m_Component:
   - component: {fileID: 63174639}
   - component: {fileID: 63174641}
-  - component: {fileID: 63174640}
+  - component: {fileID: 63174642}
+  - component: {fileID: 63174643}
   m_Layer: 0
   m_Name: Taya
   m_TagString: Player
@@ -722,35 +723,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63174638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1149668532}
+  - {fileID: 1671908372}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &63174640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63174638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72f16e19dd0e98540846f2557607426a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireball: {fileID: 2330595043888335490, guid: df8f249dafd82d24186a67cd56a1eaea,
-    type: 3}
-  player_speed: 10
-  JumpHeight: 7.5
-  hitbox: {fileID: 0}
-  original_hitbox_offset: {x: 0, y: 0}
-  ground_layer:
-    serializedVersion: 2
-    m_Bits: 256
-  debug: 0
 --- !u!70 &63174641
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -767,6 +747,42 @@ CapsuleCollider2D:
   m_Offset: {x: 0.38, y: 0}
   m_Size: {x: 1.14, y: 2}
   m_Direction: 0
+--- !u!114 &63174642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63174638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad6a4c1c0d4987439c85633a818c541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &63174643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63174638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243b4d10600383c4ebf553ace0f3648f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 0}
+  _position: {x: 0, y: 0, z: 0}
+  _isGrounded: 0
+  player_speed: 10
+  JumpHeight: 7.5
+  _isJumping: 0
+  hitbox: {fileID: 0}
+  original_hitbox_offset: {x: 0, y: 0}
+  ground_layer:
+    serializedVersion: 2
+    m_Bits: 256
+  debug: 1
 --- !u!1 &63350012
 GameObject:
   m_ObjectHideFlags: 0
@@ -20094,6 +20110,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1671908371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671908372}
+  m_Layer: 0
+  m_Name: attackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1671908372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671908371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.43, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 63174639}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1706664042
 GameObject:
   m_ObjectHideFlags: 0
@@ -20920,7 +20966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1820986007
 MonoBehaviour:
   m_ObjectHideFlags: 0
