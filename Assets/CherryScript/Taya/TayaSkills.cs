@@ -11,7 +11,7 @@ namespace Taya
         private List<CoolDown> cooldowns = new List<CoolDown>();
         void Start()
         {
-            // cooldowns.Add(gameObject.AddComponent<FastMove>());
+            cooldowns.Add(gameObject.AddComponent<FastMove>());
             cooldowns.Add(gameObject.AddComponent<BasicAttack>());
             foreach(CoolDown c in cooldowns)
             {
@@ -30,35 +30,47 @@ namespace Taya
         }
     }
 
-    // public class FastMove: CoolDown
-    // {
-    //     public float distance = 6f;
-    //     private GameObject clone;
-    //     public FastMove()
-    //     {
-    //         Name = "Teleport";
-    //         cooldown = 1f;
-    //         player_input_string = "Fast Move";
-    //     }
+    public class FastMove: CoolDown
+    {
+        public float distance = 6f;
+        private Animator _anim;
+        private TayaController playercontrol;
+        public FastMove()
+        {
+            Name = "Duty's Call";
+            cooldown = 6f;
+            player_input_string = "Fast Move";
+        }
 
-    //     public override void Action()
-    //     {
-    //         float horizontal = Input.GetAxisRaw("Horizontal");
-    //         float vertical = Input.GetAxisRaw("Vertical");
-    //         Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized * distance;
-    //         blink_cosmetic();
-    //         player.transform.position += direction;
-    //     }
+        public override void init(GameObject T)
+        {
+            player = T;
+            _anim = player.GetComponentInChildren<Animator>();
+            playercontrol = player.GetComponentInChildren<TayaController>();
+            Debug.Log(playercontrol);
+        }
 
-    //     public void blink_cosmetic()
-    //     {
-    //         clone = Instantiate(player, player.transform.position, player.transform.rotation);
-    //         Destroy(clone.GetComponent<NinjaSkills>());
-    //         Destroy(clone.GetComponentInChildren<Animator>());
-    //         Destroy(clone.GetComponent<BasicController2D>());
-    //         StartCoroutine(fadeclone(clone, 1, 0));
-    //     }
-    // }
+        public override void Action()
+        {
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized * distance;
+            _anim.speed = 4f;
+            playercontrol.default_speed = 17f;
+            // ADD GLOW AND REMOVER GLOW IN DURATION OVER
+            StartCoroutine(AnimationSpeedUpDurationOver(4));
+        }
+
+        IEnumerator AnimationSpeedUpDurationOver(float bufftime)
+        {
+            for (float t = 0.0f; t < 1.0f; t+= Time.deltaTime / bufftime)
+            {
+                yield return null;
+            }
+            _anim.speed = 1.0f;
+            playercontrol.default_speed = 10f;
+        }
+    }
 
     public class BasicAttack : CoolDown 
     {

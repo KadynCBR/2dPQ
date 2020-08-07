@@ -10,6 +10,7 @@ public class BasicController2D : MonoBehaviour
     public bool _isGrounded;
 
     public float player_speed = 10f;
+    public float default_speed = 10f;
     public float JumpHeight = 7.5f;
     private bool falling;
     private bool facing_right;
@@ -92,7 +93,7 @@ public class BasicController2D : MonoBehaviour
         } else {
             hitbox.offset = original_hitbox_offset;
             hitbox.size = new Vector2(1.1f, 2.03f);
-            player_speed = 10f;
+            player_speed = default_speed;
             _anim.SetBool("crouching", false);
         }
     }
