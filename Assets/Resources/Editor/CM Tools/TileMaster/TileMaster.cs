@@ -109,7 +109,7 @@ public class TileMaster : EditorWindow {
 			
 			cmquad.GetComponent<Renderer>().enabled = false; //disable quad's renderer
 			
-			EditorUtility.SetSelectedWireframeHidden(cmquad.GetComponent<Renderer>(), true); //hide wireframe from wireframe view mode
+			EditorUtility.SetSelectedRenderState(cmquad.GetComponent<Renderer>(), EditorSelectedRenderState.Hidden); //hide wireframe from wireframe view mode
 		}
 		if(window != null)
 		{
@@ -612,7 +612,7 @@ public class TileMaster : EditorWindow {
 					TextureImporterType type = new TextureImporterType();
 					type = TextureImporterType.Sprite;
 					ti.textureType = type;
-					ti.spritePixelsToUnits = gridSizeX;
+					ti.spritePixelsPerUnit = gridSizeX;
 					ti.spriteImportMode = SpriteImportMode.Multiple;
 					ti.filterMode = FilterMode.Point;
 										
@@ -925,7 +925,7 @@ public class TileMaster : EditorWindow {
 	}
 
     void OnDisable(){
-       SceneView.onSceneGUIDelegate -= OnSceneGUI;
+       SceneView.duringSceneGui -= OnSceneGUI;
     }
 	
     static GameObject GenerateTile(float x, float y)
