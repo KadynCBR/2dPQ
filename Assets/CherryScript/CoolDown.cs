@@ -9,6 +9,7 @@ namespace abilities {
         public bool Available;
         public float cooldown;
         public string player_input_string;
+        protected playerUI _playerUI;
         protected GameObject player;
 
         private float _timeStamp;
@@ -18,8 +19,9 @@ namespace abilities {
             Available = true;
         }
 
-        public virtual void init(GameObject T) {
+        public virtual void init(GameObject T, playerUI pui) {
             player = T;
+            _playerUI = pui;
         }
 
         public virtual bool CheckInput() {

@@ -8,6 +8,7 @@ namespace Taya
 {
     public class TayaSkills : MonoBehaviour
     {
+        public playerUI _playerUI;
         private List<CoolDown> cooldowns = new List<CoolDown>();
         void Start()
         {
@@ -15,7 +16,7 @@ namespace Taya
             cooldowns.Add(gameObject.AddComponent<BasicAttack>());
             foreach(CoolDown c in cooldowns)
             {
-                c.init(gameObject);
+                c.init(gameObject, _playerUI);
             }
         }
 
@@ -42,9 +43,10 @@ namespace Taya
             player_input_string = "Fast Move";
         }
 
-        public override void init(GameObject T)
+        public override void init(GameObject T, playerUI pui)
         {
             player = T;
+            _playerUI = pui;
             _anim = player.GetComponentInChildren<Animator>();
             playercontrol = player.GetComponentInChildren<TayaController>();
             Debug.Log(playercontrol);
@@ -57,6 +59,7 @@ namespace Taya
             Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized * distance;
             _anim.speed = 4f;
             playercontrol.default_speed = 17f;
+            _playerUI.UseShiftSkill(cooldown);
             // ADD GLOW AND REMOVER GLOW IN DURATION OVER
             StartCoroutine(AnimationSpeedUpDurationOver(4));
         }
@@ -87,9 +90,10 @@ namespace Taya
             attackRange = 0.5f;
         }
 
-        public override void init(GameObject T)
+        public override void init(GameObject T, playerUI pui)
         {
             player = T;
+            _playerUI = pui;
             _anim = T.GetComponentInChildren<Animator>();
             enemyLayers = 1 << LayerMask.NameToLayer("Enemy"); // dont use index, must shift to get bits.
             attackPoint = player.transform.Find("attackPoint");

@@ -7,6 +7,7 @@ namespace Ninja
 {
     public class NinjaSkills : MonoBehaviour
     {
+        public playerUI _playerUI;
         private List<CoolDown> cooldowns = new List<CoolDown>();
         void Start()
         {
@@ -15,7 +16,7 @@ namespace Ninja
             cooldowns.Add(gameObject.AddComponent<Fireball>());
             foreach(CoolDown c in cooldowns)
             {
-                c.init(gameObject);
+                c.init(gameObject, _playerUI);
             }
         }
 
@@ -48,6 +49,7 @@ namespace Ninja
             Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized * distance;
             blink_cosmetic();
             player.transform.position += direction;
+            _playerUI.UseShiftSkill(cooldown);
         }
 
         public void blink_cosmetic()
@@ -56,6 +58,7 @@ namespace Ninja
             Destroy(clone.GetComponent<NinjaSkills>());
             Destroy(clone.GetComponentInChildren<Animator>());
             Destroy(clone.GetComponent<BasicController2D>());
+            Destroy(clone.GetComponent<PlayerStatus>());
             StartCoroutine(fadeclone(clone, 1, 0));
         }
 
@@ -88,9 +91,10 @@ namespace Ninja
             attackRange = 0.5f;
         }
 
-        public override void init(GameObject T)
+        public override void init(GameObject T, playerUI pui)
         {
             player = T;
+            _playerUI = pui;
             _anim = T.GetComponentInChildren<Animator>();
             enemyLayers = 1 << LayerMask.NameToLayer("Enemy"); // dont use index, must shift to get bits.
             attackPoint = player.transform.Find("attackPoint");
@@ -123,9 +127,10 @@ namespace Ninja
             player_input_string = "Fire2";
         }
 
-        public override void init(GameObject T)
+        public override void init(GameObject T, playerUI pui)
         {
             player = T;
+            _playerUI = pui;
             _anim = T.GetComponentInChildren<Animator>();
             // fireball = T.GetComponentInChildren<BasicController2D>().fireball;
         }

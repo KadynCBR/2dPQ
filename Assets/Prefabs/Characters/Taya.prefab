@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4485622868167102571}
   - component: {fileID: 4485622868167102568}
   - component: {fileID: 4485622868167102569}
+  - component: {fileID: 1639924519}
   m_Layer: 0
   m_Name: Taya
   m_TagString: Player
@@ -63,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad6a4c1c0d4987439c85633a818c541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerUI: {fileID: 0}
 --- !u!114 &4485622868167102569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +90,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   debug: 0
+--- !u!114 &1639924519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4485622868167102580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d0380d41cda489ad9a07f6060ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 300
+  currentHP: 0
+  maxUtility: 100
+  currentUtility: 0
+  _playerUI: {fileID: 0}
+  HPRegen: 5
+  UtilityRegen: 5
 --- !u!1 &4485622869186669353
 GameObject:
   m_ObjectHideFlags: 0
