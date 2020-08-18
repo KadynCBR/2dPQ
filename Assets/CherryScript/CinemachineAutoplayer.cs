@@ -7,10 +7,13 @@ public class CinemachineAutoplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cinemachine.CinemachineVirtualCamera cvc = GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>(); 
+        Cinemachine.CinemachineVirtualCamera[] cvc = GetComponentsInChildren<Cinemachine.CinemachineVirtualCamera>(); 
         GameObject player_object = GameObject.FindGameObjectWithTag("Player");
-        cvc.Follow = player_object.transform;
-        cvc.LookAt = player_object.transform;
+        foreach (Cinemachine.CinemachineVirtualCamera c in cvc)
+        {
+            c.Follow = player_object.transform;
+            c.LookAt = player_object.transform;
+        }
     }
 
     // Update is called once per frame
