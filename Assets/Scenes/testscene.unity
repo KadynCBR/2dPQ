@@ -9047,6 +9047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 426493323}
   - component: {fileID: 426493324}
+  - component: {fileID: 426493325}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -9062,8 +9063,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426493322}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.035000086, y: -0.008000016, z: 5}
-  m_LocalScale: {x: 1.0578061, y: 1.0200536, z: 0.5}
+  m_LocalPosition: {x: 0.277, y: -0.165, z: 5}
+  m_LocalScale: {x: 1.1234105, y: 0.986284, z: 0.5}
   m_Children: []
   m_Father: {fileID: 153891902}
   m_RootOrder: 0
@@ -9118,6 +9119,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &426493325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426493322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d00de73496b0549a7eb506b15fef34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &431332295
 GameObject:
   m_ObjectHideFlags: 0
