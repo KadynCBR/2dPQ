@@ -10,6 +10,7 @@ namespace Multiplayer.Lobby
 {
     public class NetworkManagerLobby : NetworkManager
     {
+        [SerializeField] private int minPlayers = 2;
         [Scene] [SerializeField] private string menuScene = string.Empty;
 
         [Header("Room")]
@@ -17,6 +18,8 @@ namespace Multiplayer.Lobby
 
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
+
+        public List<RoomPlayerLobby> RoomPlayers { get; } = new List<RoomPlayerLobby>();
 
         public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs").ToList();
 
@@ -62,10 +65,48 @@ namespace Multiplayer.Lobby
         {
             if (SceneManager.GetActiveScene().name == menuScene)
             {
+                bool isLeader = RoomPlayers.Count == 0;
                 RoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
 
+                roomPlayerInstance.IsLeader = isLeader;
                 NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
             }
+        }
+
+        public override void OnServerDisconnect(NetworkConnection conn)
+        {
+            if (conn.identity != null)
+            {
+                var player = conn.identity.GetComponent<RoomPlayerLobby>();
+
+                RoomPlayers.Remove(player);
+
+                NotifyPlayersOfReadyState();
+            }
+            base.OnServerDisconnect(conn);
+        }
+
+        public override void OnStopServer()
+        {
+            RoomPlayers.Clear();
+        }
+
+        public void NotifyPlayersOfReadyState()
+        {
+            foreach (var player in RoomPlayers)
+            {
+                player.HandleReadyToStart(IsReadyToStart());
+            }
+        }
+
+        private bool IsReadyToStart()
+        {
+            if (numPlayers < minPlayers) { return false; }
+            foreach (var player in RoomPlayers)
+            {
+                if (!player.IsReady) { return false; }
+            }
+            return true;
         }
     }
 }
