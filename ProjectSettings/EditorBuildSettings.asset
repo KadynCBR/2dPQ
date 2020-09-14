@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MultiplayerLobby.unity
+    path: Assets/Scenes/multiplayer_interface/MultiplayerJoinScreen.unity
     guid: c326e81c0c0d0074c998f10be32e4d7b
+  - enabled: 1
+    path: Assets/Scenes/Scene_Map_01.unity
+    guid: 7c2a9a91d0df19a49a16b25d10ce6560
   m_configObjects: {}

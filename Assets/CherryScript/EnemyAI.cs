@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     Path path;
     int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
+    // bool reachedEndOfPath = false;
     int path_count;
 
     Seeker seeker;
@@ -44,11 +44,11 @@ public class EnemyAI : MonoBehaviour
             return;
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            reachedEndOfPath = true;
+            // reachedEndOfPath = true;
             direction = new Vector3(0,0,0);
             return;
         } else {
-            reachedEndOfPath = false;
+            // reachedEndOfPath = false;
         }
 
         float character_distance = Vector2.Distance(transform.position, target.position);

@@ -16,10 +16,14 @@ namespace Multiplayer.Lobby
         [Header("Room")]
         [SerializeField] private RoomPlayerLobby roomPlayerPrefab = null;
 
+        [Header("Game")]
+        [SerializeField] private GamePlayerNetwork gamePlayerPrefab = null;
+
         public static event Action OnClientConnected;
         public static event Action OnClientDisconnected;
 
         public List<RoomPlayerLobby> RoomPlayers { get; } = new List<RoomPlayerLobby>();
+        public List<GamePlayerNetwork> GamePlayers { get; } = new List<GamePlayerNetwork>();
 
         public override void OnStartServer() => spawnPrefabs = Resources.LoadAll<GameObject>("SpawnablePrefabs").ToList();
 
@@ -54,7 +58,7 @@ namespace Multiplayer.Lobby
                 conn.Disconnect();
                 return;
             }
-            if (SceneManager.GetActiveScene().name != menuScene)
+            if (SceneManager.GetActiveScene().path != menuScene)
             {
                 conn.Disconnect();
                 return;
@@ -63,11 +67,13 @@ namespace Multiplayer.Lobby
 
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
-            if (SceneManager.GetActiveScene().name == menuScene)
+            Debug.Log("Server adding player!");
+            Debug.Log($"{SceneManager.GetActiveScene().path}: {menuScene}");
+            if (SceneManager.GetActiveScene().path == menuScene)
             {
                 bool isLeader = RoomPlayers.Count == 0;
                 RoomPlayerLobby roomPlayerInstance = Instantiate(roomPlayerPrefab);
-
+                Debug.Log("Added roomplayer lobby!");
                 roomPlayerInstance.IsLeader = isLeader;
                 NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
             }
@@ -107,6 +113,35 @@ namespace Multiplayer.Lobby
                 if (!player.IsReady) { return false; }
             }
             return true;
+        }
+
+        public void StartGame()
+        {
+            if (SceneManager.GetActiveScene().path == menuScene)
+            {
+                if (!IsReadyToStart()) { return; }
+
+                ServerChangeScene("Scene_Map_01");
+            }
+        }
+
+        public override void ServerChangeScene(string newSceneName)
+        {
+            // from menu to game
+            if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith("Scene_Map"))
+            {
+                for (int i = RoomPlayers.Count -1; i >= 0; i--)
+                {
+                    var conn = RoomPlayers[i].connectionToClient;
+                    var gameplayerInstance = Instantiate(gamePlayerPrefab);
+                    gameplayerInstance.SetDisplayName(RoomPlayers[i].DisplayName);
+
+                    NetworkServer.Destroy(conn.identity.gameObject);
+
+                    NetworkServer.ReplacePlayerForConnection(conn, gameplayerInstance.gameObject);
+                }
+            }
+            base.ServerChangeScene(newSceneName);
         }
     }
 }

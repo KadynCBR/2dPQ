@@ -54,7 +54,7 @@ namespace Multiplayer.Lobby
             UpdateDisplay();
         }
 
-        public override void OnNetworkDestroy()
+        public override void OnStopClient()
         {
             Room.RoomPlayers.Remove(this);
             UpdateDisplay();
@@ -65,11 +65,11 @@ namespace Multiplayer.Lobby
     
         private void UpdateDisplay()
         {
-            if (!isLocalPlayer)
+            if (!hasAuthority)
             {
                 foreach (var player in Room.RoomPlayers)
                 {
-                    if (player.isLocalPlayer)
+                    if (player.hasAuthority)
                     {
                         player.UpdateDisplay();
                         break;
@@ -116,7 +116,7 @@ namespace Multiplayer.Lobby
         {
             if (Room.RoomPlayers[0].connectionToClient != connectionToClient) {return;}
 
-            //start game
+            Room.StartGame();
         }
     }
 }
