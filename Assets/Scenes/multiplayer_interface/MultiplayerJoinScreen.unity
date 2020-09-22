@@ -450,7 +450,7 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
-  minPlayers: 2
+  minPlayers: 1
   menuScene: Assets/Scenes/multiplayer_interface/MultiplayerJoinScreen.unity
   roomPlayerPrefab: {fileID: 3957800670610438655, guid: 3768f6939259286488678ffb6db9fb5e,
     type: 3}
